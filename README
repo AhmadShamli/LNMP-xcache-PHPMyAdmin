@@ -1,0 +1,17 @@
+From LowEndBox's and Xeoncross' forked lowendscript.
+
+Existing for installation:
+Nginx
+MySQL
+PHP5
+Dropbear
+Wordpress
+
+Added for installation:
+PHPMyAdmin
+XCache
+Memcached
+Wordpress with W3TC config for nginx
+Vnstat and PHP version of Vnstat
+Nginx to use Unix socket
+
