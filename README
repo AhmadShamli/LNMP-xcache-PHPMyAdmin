@@ -4,12 +4,18 @@ Existing for installation:
 Nginx
 MySQL
 PHP5
+Dash
 Dropbear
 Wordpress
+Dotdeb repository(have latest release)
+
+Remove from installation:
+Exim4
 
 Added for installation:
 PHPMyAdmin
 XCache
+Sendmail
 Memcached
 Wordpress with W3TC config for nginx
 Vnstat and PHP version of Vnstat
