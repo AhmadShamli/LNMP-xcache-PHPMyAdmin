@@ -214,7 +214,7 @@ check_install php5-cgi php5-cgi
 check_install php5-cli php5-cli
 
 # PHP modules
-DEBIAN_FRONTEND=noninteractive apt-get -y install php-apc php5-suhosin php5-curl php5-gd php5-mcrypt php5-mysql php5-sqlite
+DEBIAN_FRONTEND=noninteractive apt-get -y install php-apc php5-suhosin php5-curl php5-gd php5-mcrypt php5-mysql php5-sqlite php5-xcache
 
 # Create startup script
 cat > /etc/init.d/php-fastcgi <<"END"
@@ -392,6 +392,25 @@ echo 'Installed dotdeb in /etc/apt/sources.list'
 echo ' '
 }
 
+function install_phpmyadmin(
+check_install phpmyadmin phpmyadmin
+# creating symlink for phpmyadmin in default nginx vhost
+ls -s /usr/share/phpmyadmin /usr/share/nginx/www
+chown root:root -R /usr/share/nginx/www/*
+)
+
+function install_vnstat(
+check_install vnstat vnstat
+if [ ! -d /usr/share/nginx/www/vnstat ]
+then
+# change the version from vnstat frontend website http://www.sqweek.com/
+wget http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz
+tar zxf /usr/share/nginx/www/vnstat_php_frontend-1.5.1.tar.gz
+mv /usr/share/nginx/www/vnstat_php_frontend-1.5.1 /usr/share/nginx/www/vnstat
+rm -rf /usr/share/nginx/www/vnstat_php_frontend-1.5.1
+chown root:root -R /usr/share/nginx/www/*
+fi
+)
 function install_syslogd {
 # We just need a simple vanilla syslogd. Also there is no need to log to
 # so many files (waste of fd). Just dump them into

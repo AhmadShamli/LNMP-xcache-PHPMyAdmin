@@ -16,8 +16,7 @@ Added for installation:
 PHPMyAdmin
 XCache
 Sendmail
-Memcached
-Wordpress with W3TC config for nginx
+Wordpress
 Vnstat and PHP version of Vnstat
 Nginx to use Unix socket
 
